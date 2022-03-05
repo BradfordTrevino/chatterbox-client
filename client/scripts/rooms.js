@@ -7,9 +7,12 @@ var Rooms = {
   // TODO: Define how you want to store the list of rooms
   _data: [],
 
-  createRoom: (roomname) => {
-    var $newRoom = $(`<option value="room'>${roomname}</option>`);
-    RoomsView.$select.append($newRoom);
+  add: (roomname) => {
+    var roomsTemplate = _.template(`
+      <option><%= roomname %></option>
+      `);
+    // console.log(RoomsView.$select.children());
+    RoomsView.$select.append(roomsTemplate({roomname: roomname}));
   },
 
   updateRooms: (roomname) => {

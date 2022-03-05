@@ -7,7 +7,6 @@ var App = {
   $spinner: $('.spinner img'),
 
   username: 'Bradford and Alex',
-  roomname: 'Hotel',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -22,12 +21,13 @@ var App = {
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
+    // setInterval(App.fetch, 3000);
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      // console.log(data);
       MessagesView.render(data);
       RoomsView.render(data);
       callback();

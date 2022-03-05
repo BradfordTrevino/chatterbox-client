@@ -7,22 +7,22 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
+    RoomsView.$button.on('click', RoomsView.handleClick);
+    RoomsView.$select.on('change', RoomsView.handleChange);
   },
 
   render: function(data) {
     // TODO: Render out the list of rooms.
     for (let i = 0; i < data.length; i++) {
-      if (!data[i].roomname) {
-        RoomsView.renderRoom(data[i].roomname);
+      if (data[i].roomname) {
+        Rooms.add(data[i].roomname);
       }
     }
   },
 
   renderRoom: function(roomname) {
-    // createRoom method
-    Rooms.createRoom(roomname);
+    // add method
+    Rooms.add(roomname);
     // TODO: Render out a single room.
   },
 
@@ -31,6 +31,7 @@ var RoomsView = {
   },
 
   handleClick: function(event) {
+    console.log(event);
     // TODO: Handle the user clicking the "Add Room" button.
   }
 
