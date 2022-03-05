@@ -5,8 +5,19 @@
 var Rooms = {
 
   // TODO: Define how you want to store the list of rooms
-  _data: null,
+  _data: [],
 
+  createRoom: (roomname) => {
+    var $newRoom = $(`<option value="room'>${roomname}</option>`);
+    RoomsView.$select.append($newRoom);
+  },
+
+  updateRooms: (roomname) => {
+    if (!Rooms._data.includes(roomname)) {
+      Rooms.createRoom(roomname);
+      Rooms._data.push(roomname);
+    }
+  }
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
 

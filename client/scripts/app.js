@@ -6,7 +6,8 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-  username: 'anonymous',
+  username: 'Bradford and Alex',
+  roomname: 'Hotel',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -27,7 +28,9 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      MessagesView.render(data);
+      RoomsView.render(data);
+      callback();
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });

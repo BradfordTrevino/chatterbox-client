@@ -10,12 +10,22 @@ var MessagesView = {
     // when this view loads.
   },
 
-  render: function() {
-    // TODO: Render _all_ the messages.
+  render: function(data) {
+    console.log(data);
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i]);
+      MessagesView.renderMessage(data[i]);
+    }
   },
 
   renderMessage: function(message) {
-    // TODO: Render a single message.
+    let $messageHTML = MessageView.render(message);
+    MessagesView.$chats.prepend($messageHTML);
+    // message.username = _.escape(message.username);
+    // message.text = _.escape(message.text);
+    // message.roomname = _.escape(message.roomname);
+
+    // MessagesView.$chats.append(MessageView.render(message));
   },
 
   handleClick: function(event) {

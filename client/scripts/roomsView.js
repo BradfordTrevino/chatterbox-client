@@ -11,11 +11,18 @@ var RoomsView = {
     // when this view loads.
   },
 
-  render: function() {
+  render: function(data) {
     // TODO: Render out the list of rooms.
+    for (let i = 0; i < data.length; i++) {
+      if (!data[i].roomname) {
+        RoomsView.renderRoom(data[i].roomname);
+      }
+    }
   },
 
   renderRoom: function(roomname) {
+    // createRoom method
+    Rooms.createRoom(roomname);
     // TODO: Render out a single room.
   },
 
