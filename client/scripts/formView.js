@@ -22,10 +22,12 @@ var FormView = {
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
     Parse.create(message, (data) => {
+      Message.createMessage(message);
       MessagesView.renderMessage(message);
     });
     // RoomsView.selectRoom();
     FormView.$form.trigger('reset');
+    App.fetch();
   },
 
   setStatus: function(active) {
